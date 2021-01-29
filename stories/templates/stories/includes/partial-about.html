@@ -1,0 +1,63 @@
+{% load static %}
+{% load timefilter %}
+{% load about_tag %}
+<section class="ftco-counter ftco-section ftco-no-pt ftco-no-pb img" id="section-counter">
+    <div class="container">
+        <div class="row d-flex">
+            <div class="col-md-6 d-flex">
+                <div class="img d-flex align-self-stretch" style="background-image:url({% static 'stories/images/about.jpg' %});"></div>
+            </div>
+            <div class="col-md-6 pl-md-5 py-5">
+                <div class="row justify-content-start pb-3">
+                    {% get_about_data as datas %}
+                    <div class="col-md-12 heading-section ftco-animate">
+                        <h2 class="mb-4"><span>{{ datas.page_title }}</span></h2>
+        
+                        <p>{{ datas.description_text }}</p>
+                        <!-- <p>Stories</p> -->
+                        <p>{{ "3 Dec 2020" | get_date  }}</p>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    
+                    {% for data in datas.daily_dates %}
+                    <div class="col-md-6 justify-content-center counter-wrap ftco-animate">
+                        <div class="block-18 text-center py-5 bg-light mb-4">
+                            
+                            <div class="text">
+                                <strong class="number" data-number={{ data.count }}></strong>
+                                <span>{{ data.key1 }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ftco-subscribe ftco-section bg-light">
+    <div class="overlay">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-8 text-wrap text-center heading-section ftco-animate">
+                    <h2 class="mb-4"><span>Subcribe to our Newsletter</span></h2>
+                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It
+                        is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                    <div class="row d-flex justify-content-center mt-4 mb-4">
+                        <div class="col-md-8">
+                            <form action="#" class="subscribe-form">
+                                <div class="form-group d-flex">
+                                    <input type="text" class="form-control" placeholder="Enter email address">
+                                    <input type="submit" value="Subscribe" class="submit px-3">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

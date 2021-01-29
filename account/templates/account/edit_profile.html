@@ -1,0 +1,24 @@
+{% extends "stories/base.html" %}
+{% block content %}
+{% load crispy_forms_tags %}
+{% load static %}
+    <section class="ftco-section contact-section create-story">
+        <div class="container">
+            <div class="row block-9 justify-content-center">
+                <div class="col-md-6 order-md-last d-flex">
+                    <form method="POST" class="bg-light p-5 contact-form" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <fieldset class="form-group">
+                            <legend class="navbar-brand center" href="#">Profile Info<span>.</span></legend>
+                            {{ u_form|crispy }}
+                            {{ p_form|crispy }}
+                        </fieldset>
+                        <div class="form-group">
+                            <button class="btn btn-primary py-3 px-5" type="submit">Update</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}
